@@ -21,6 +21,8 @@ console.log('File written successfully!')
     })
 })
 console.log("Will reading wait!!!!")*/
+const slugify = require('slugify')
+
 const http = require('http');
 const fs = require('fs');
 const url = require('url');
@@ -40,6 +42,7 @@ const replaceTemplate = (temp, product) => {
 
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data);
+const slugs = dataObj.map(el => slugify(el.productName, {lower: true})); // Example of slugify usage
 
 const tempOverview = fs.readFileSync(
   `${__dirname}/templates/template-overview.html`,
