@@ -11,5 +11,5 @@ fs.readFile(`${__dirname}/dog.txt`, (err, data) => {
             console.log('Random dog image saved to file!');
         });
     
-})
+    })
 })
